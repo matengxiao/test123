@@ -1,0 +1,27 @@
+
+An "italian" army knife to manage UEFI variables in Windows.
+V1.2 (C) 2019 by Zibri http://www.zibri.org
+
+UEFIVAR [-l] [-sg] [-sn] [-G:"GUID"] [-N:"NAME"] [-hd] [-bd[[:]["filename"]]] [-D] [-WB64:b64data]
+        [-A:"ATTRIBUTES"] [-b64[[:]["filename"]]] [-I:"filename"] [-i:"filename"] [-WHEX:hexstring]
+        [-APPEND] [-h] [-m]
+
+  -l                     Lists all UEFI variables.
+  -l -sg                 Sorts variables by their GUIDs.
+  -l -sn                 Sorts variables by their names.
+  -G:"GUID"              Specifies the variable GUID.
+  -N:"Name"              Specifies the variable name.
+  -A:"xx"                Specifies the variable attribute.
+  -hd                    Dumps the content of the variable(s) in Hex.
+  -bd[[:]["filename"]]   Dumps the content of the variable(s) in Binary file.
+  -b64[[:]["filename"]]  Dumps the content of the variable(s) in Base64.
+  -I:"fname"             Imports from binary or base64 file (need GUID and NAME).
+  -i:"fname"             Imports from binary or base64 file (using filename).
+  -D                     Deletes the variable (DANGEROUS!)
+  -WB64:"b64data"        Writes the variable data (creating the variable if needed).
+  -WHEX:"hex string"     Writes the variable data (creating the variable if needed).
+  -APPEND                Appends the data to the existing variable.
+  -h/-H                  Show this help sheet.
+  -m/-M                  Manual with examples.
+  -z                     Donate (please donate more than $2 or PayPal will take it all)
+

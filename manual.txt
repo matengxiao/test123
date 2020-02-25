@@ -1,0 +1,47 @@
+
+An "italian" army knife to manage UEFI variables in Windows.
+V1.2 (C) 2019 by Zibri http://www.zibri.org
+
+UEFIVAR [-l [-sg] [-sn]] [-G:"GUID"] [-N:"NAME"] [-hd] [-bd[[:]["filename"]]] [-D] [-WB64:b64data]
+        [-A:"ATTRIBUTES"] [-b64[[:]["filename"]]] [-I:"filename"] [-i:"filename"] [-WHEX:hexstring]
+        [-APPEND] [-h] [-m]
+
+Examples:
+uefivar -l -bd     Dumps all UEFI variables in binary format in the current directory.
+uefivar -l -hd     Hex-dumps all UEFI variables in the current console.
+uefivar -l -b64    Dumps all UEFI variables in base64 format in the current console.
+uefivar -l -b64:   Dumps all UEFI variables in base64 format in the current directory.
+
+Dump a variable on screen in hex:
+uefivar -G:"8be4df61-93ca-11d2-aa0d-00e098032b8c" -N:"BootCurrent" -hd
+
+Dump a variable on screen in base64:
+uefivar -G:"8be4df61-93ca-11d2-aa0d-00e098032b8c" -N:"BootCurrent" -b64
+
+Dump a variable on disk in binary and automatic name:
+uefivar -G:"8be4df61-93ca-11d2-aa0d-00e098032b8c" -N:"BootCurrent" -bd
+
+Dump a variable on disk in binary and custom name:
+uefivar -G:"8be4df61-93ca-11d2-aa0d-00e098032b8c" -N:"BootCurrent" -bd:"bc.bin"
+
+Import a variable from binary file (automatic):
+uefivar -i:"8be4df61-93ca-11d2-aa0d-00e098032b8c-BootCurrent (BS+RT).bin"
+
+Create a variable (base64):
+uefivar -G:"12345678-1234-1234-1234-123456789012" -N:"Zibri" -WB64:"AQ==" -A:"NV"
+
+Create a variable (hex):
+uefivar -G:"12345678-1234-1234-1234-123456789012" -N:"Zibri" -WHEX:"01020304" -A:"NV"
+
+Delete a variable:
+uefivar -G:"12345678-1234-1234-1234-123456789012" -N:"Zibri" -D
+
+Automatic import from disk of a saved binary variable:
+uefivar -i:"12345678-1234-1234-1234-123456789012-Zibri (NV+BS+RT).bin"
+
+Dump a variable on disk in base64 automatic mode:
+uefivar -G:"12345678-1234-1234-1234-123456789012" -N:"Zibri" -b64:
+
+Manual import of a variable saved in an arbitrary binary file:
+uefivar -G:"12345678-1234-1234-1234-123456789012" -N:"Zibri" -I:"zibri.bin"
+
